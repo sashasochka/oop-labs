@@ -1,0 +1,56 @@
+@startuml
+
+package lab2
+
+class Symbol {
+  -char character
+  +char getChar()
+  +Symbol(char)
+  +String toString()
+}
+Symbol <|-- SeparatorSymbol
+
+class SeparatorSymbol {
+  +{static} boolean isSeparator(char)
+  +SeparatorSymbol(char)
+}
+
+
+Word o--  "1..*" Symbol
+
+class Word {
+  -Symbol[] letters
+  +Word(Symbol[])
+  +void addLetter()
+  +Symbol[] getSymbols()
+  +int countLetter(Symbol)
+}
+
+Sentence o-- "1..*" SentencePart
+
+SentencePart <|-- Word
+SentencePart <|-- SeparatorSymbol
+
+interface SentencePart {
+  +boolean isWord()
+  +String toString()
+}
+
+class Sentence {
+  -SentencePart[] parts
+  +Sentece(SentencePart[] parts)
+  +void addPart()
+  +String toString()
+  +Word[] getWords()
+}
+
+Text o-- "1..*"  Sentence
+
+class Text {
+  -Sentence[] sentences
+  +Text(Sentence[])
+  +void addSentence(Sentence)
+  +String toString()
+}
+
+@enduml
