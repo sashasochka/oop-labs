@@ -41,4 +41,8 @@ public class Symbol {
     public int hashCode() {
         return (int) character;
     }
+
+    public Symbol toLower() {
+        return new Symbol(Character.toLowerCase(character));
+    }
 }

@@ -1,7 +1,5 @@
 package lab2;
 
-import com.google.common.base.CharMatcher;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -9,15 +7,9 @@ import java.util.List;
 public class WordSorter {
     public static void main(String[] args) {
         /** the letter for sorting words by number of its occurences */
-        final char indexingLetter = Character.toLowerCase('o');
+        final Symbol indexingLetter = new Symbol(Character.toLowerCase('o'));
         /** string which contains words to be sorted */
         final String textString = "Hello, how are you? Ooo oooo Oo    oo you!";
-
-        /** check that indexingLetter is a letter */
-        if (!Character.isLetter(indexingLetter)) {
-            System.err.println(indexingLetter + " is not a letter!");
-            System.exit(1);
-        }
 
         /** Text object containing OO representation of text string */
         Text text = new Text(textString);
@@ -27,15 +19,13 @@ public class WordSorter {
         Collections.sort(words, new Comparator<Word>() {
             /**
              *
-             * @param \a w1 First word to compare
-             * @param \a w2 Second word to compare
+             * @param w1 First word to compare
+             * @param w2 Second word to compare
              * @return The same semantics as in overriden method
              */
             @Override
             public int compare(final Word w1, final Word w2) {
-                // FIXME rewrite using countLetters method
-                return CharMatcher.is(indexingLetter).countIn(w1.toString().toLowerCase()) -
-                        CharMatcher.is(indexingLetter).countIn(w2.toString().toLowerCase());
+                return w1.countLetter(indexingLetter) - w2.countLetter(indexingLetter);
             }
         });
         /** each word in list of words */

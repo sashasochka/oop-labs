@@ -1,7 +1,8 @@
 package lab2;
 
+import com.google.common.base.CharMatcher;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Word implements SentencePart {
@@ -29,7 +30,7 @@ public class Word implements SentencePart {
 
     /** Count letter occurences */
     public int countLetter(Symbol letter) {
-        return Collections.frequency(letters, letter);
+        return CharMatcher.is(letter.toLower().getChar()).countIn(toString().toLowerCase());
     }
 
     @Override
