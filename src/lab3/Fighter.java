@@ -22,6 +22,31 @@ public class Fighter extends Plane {
         this.bullets = bullets;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Fighter)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final Fighter fighter = (Fighter) o;
+
+        return bullets == fighter.bullets;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + bullets;
+        return result;
+    }
+
     /**
      *
      * @return seats Number of bullets in this plane

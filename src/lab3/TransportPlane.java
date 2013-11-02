@@ -39,4 +39,29 @@ public class TransportPlane extends Plane {
                 "\tfuelPerHour: " + getFuelPerHour() + "\n" +
                 "\tseats: " + getSeats() + "\n";
     }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TransportPlane)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final TransportPlane that = (TransportPlane) o;
+
+        return seats == that.seats;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + seats;
+        return result;
+    }
 }

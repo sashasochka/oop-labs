@@ -22,6 +22,31 @@ public class Bomber extends Plane {
         this.bombs = bombs;
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Bomber)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final Bomber bomber = (Bomber) o;
+
+        return bombs == bomber.bombs;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + bombs;
+        return result;
+    }
+
     /**
      *
      * @return seats Number of bombs in this plane
