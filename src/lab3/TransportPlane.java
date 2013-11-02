@@ -15,9 +15,9 @@ public class TransportPlane extends Plane {
      * @param fuelPerHour Fuel per hour usage
      * @param seats Number of seats in this plane
      */
-    protected TransportPlane(final String name, final int capacity, final int load,
-                             final int flightDistance,
-                             final double fuelPerHour, final int seats) {
+    public TransportPlane(final String name, final int capacity, final int load,
+                          final int flightDistance,
+                          final double fuelPerHour, final int seats) {
         super(name, capacity, load, flightDistance, fuelPerHour);
         this.seats = seats;
     }
