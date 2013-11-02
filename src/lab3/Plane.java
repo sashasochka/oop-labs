@@ -1,5 +1,8 @@
 package lab3;
 
+/**
+ * Abstract base class for any plane
+ */
 public abstract class Plane {
     final private String name;
     final private int capacity;
@@ -7,6 +10,15 @@ public abstract class Plane {
     final private int flightDistance;
     final private double fuelPerHour;
 
+
+    /**
+     * Construct Plane object
+     * @param name Name of this plane
+     * @param capacity Maximum plane capacity
+     * @param load Maximum plane load
+     * @param flightDistance Maximum distance plane can flight
+     * @param fuelPerHour Fuel per hour usage
+     */
     protected Plane(final String name, final int capacity, final int load, final int flightDistance,
                     final double fuelPerHour) {
         this.name = name;
@@ -16,22 +28,42 @@ public abstract class Plane {
         this.fuelPerHour = fuelPerHour;
     }
 
+    /**
+     *
+     * @return Name of this plane
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return Capacity of this plane
+     */
     public int getCapacity() {
         return capacity;
     }
 
+    /**
+     *
+     * @return Maximum flight distance of this plane
+     */
     public int getFlightDistance() {
         return flightDistance;
     }
 
+    /**
+     *
+     * @return Load of this plane
+     */
     public int getLoad() {
         return load;
     }
 
+    /**
+     *
+     * @return Fuel usage per hour
+     */
     public double getFuelPerHour() {
         return fuelPerHour;
     }
