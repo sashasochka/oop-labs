@@ -6,7 +6,7 @@ import java.util.List;
 
 public class WordSorter {
     public static void main(String[] args) {
-        /** the letter for sorting words by number of its occurences */
+        /** this letter for sorting words by number of its occurences */
         final Symbol indexingLetter = new Symbol(Character.toLowerCase('o'));
         /** string which contains words to be sorted */
         final String textString = "Hello, how are you? Ooo oooo Oo    oo you!";
@@ -21,7 +21,7 @@ public class WordSorter {
              *
              * @param w1 First word to compare
              * @param w2 Second word to compare
-             * @return The same semantics as in overriden method
+             * @return This same semantics as in overriden method
              */
             @Override
             public int compare(final Word w1, final Word w2) {

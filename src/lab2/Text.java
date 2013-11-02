@@ -6,7 +6,7 @@ import java.util.List;
 public class Text {
     private List<Sentence> sentences;
 
-    /** Default constructor - no sentences inside the Text */
+    /** Default constructor - no sentences inside this Text */
     public Text() {
         this.sentences = new ArrayList<>();
     }

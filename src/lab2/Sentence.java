@@ -16,7 +16,7 @@ public class Sentence {
         this.parts = parts;
     }
 
-    /** Add a part of the sentence */
+    /** Add a part of this sentence */
     public void addPart(SentencePart part) {
         parts.add(part);
     }
@@ -46,7 +46,7 @@ public class Sentence {
         return words;
     }
 
-    /** Get all parts of the sentence */
+    /** Get all parts of this sentence */
     public List<SentencePart> getParts() {
         return parts;
     }
