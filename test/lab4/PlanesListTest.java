@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class PlanesListTest {
 
     /**
-     * Plane objects used during tests
+     * Plane objects used during tests.
      */
     private final Plane plane = new TransportPlane("JustPlane", 1, 2, 3, 4, 5);
 
@@ -38,6 +38,7 @@ public class PlanesListTest {
     @Test
     public void testAdd() {
         PlanesList planes = new PlanesList();
+
         planes.add(plane);
         assertEquals(planes.size(), 1);
         assertTrue(planes.get(0) == plane);
@@ -46,6 +47,7 @@ public class PlanesListTest {
     @Test
     public void testAddAll()  {
         PlanesList planes = new PlanesList();
+
         planes.addAll(Arrays.asList(heinkel, messershmidt));
         assertEquals(planes.get(0), heinkel);
         assertEquals(planes.get(1), messershmidt);
@@ -55,6 +57,7 @@ public class PlanesListTest {
     public void testClear() {
         PlanesList planes = new PlanesList(Arrays.asList(plane, plane, plane,
                 plane));
+
         assertFalse(planes.isEmpty());
         planes.clear();
         assertTrue(planes.isEmpty());
@@ -63,6 +66,7 @@ public class PlanesListTest {
     @Test
     public void testContains() {
         PlanesList planes = new PlanesList();
+
         assertFalse(planes.contains(plane));
         planes.add(plane);
         assertTrue(planes.contains(plane));
@@ -71,6 +75,7 @@ public class PlanesListTest {
     @Test
     public void testContainsAll()  {
         PlanesList planes = new PlanesList(Arrays.asList(heinkel, messershmidt));
+
         assertTrue(planes.containsAll(Arrays.asList(messershmidt, heinkel)));
         assertFalse(planes.containsAll(Arrays.asList(boeing)));
     }
@@ -78,6 +83,7 @@ public class PlanesListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testDefaultConstructor() {
         PlanesList planes = new PlanesList();
+
         assertTrue(planes.isEmpty());
         assertEquals(planes.size(), 0);
         planes.get(0);
@@ -87,6 +93,7 @@ public class PlanesListTest {
     public void testGet() {
         PlanesList planes = new PlanesList(Arrays.asList(douglas, messershmidt,
                 douglas, douglas));
+
         assertEquals(planes.get(1), messershmidt);
     }
 
@@ -94,12 +101,14 @@ public class PlanesListTest {
     public void testIndexOf() {
         PlanesList planes = new PlanesList(Arrays.asList(la7, douglas, douglas,
                 la7));
+
         assertEquals(planes.indexOf(douglas), 1);
     }
 
     @Test
     public void testIsEmpty() {
         PlanesList planes = new PlanesList();
+
         assertTrue(planes.isEmpty());
         planes.add(messershmidt);
         assertFalse(planes.isEmpty());
@@ -114,6 +123,7 @@ public class PlanesListTest {
     public void testIterator() {
         List<Plane> lst = Arrays.asList(douglas, boeing, messershmidt);
         PlanesList planes = new PlanesList(lst);
+
         int index = 0;
         for (Plane plane : planes) {
             assertEquals(plane, planes.get(index));
@@ -125,6 +135,7 @@ public class PlanesListTest {
     public void testLastIndexOf() {
         PlanesList planes = new PlanesList(Arrays.asList(douglas, la7, la7,
                 douglas));
+
         assertEquals(planes.lastIndexOf(la7), 2);
     }
 
@@ -132,6 +143,7 @@ public class PlanesListTest {
     public void testRemove() {
         PlanesList planes = new PlanesList(Arrays.asList(heinkel, boeing,
                 boeing, heinkel));
+
         planes.remove(boeing);
         assertEquals(planes.size(), 3);
     }
@@ -140,6 +152,7 @@ public class PlanesListTest {
     public void testRemoveAll()  {
         PlanesList planes = new PlanesList(Arrays.asList(heinkel, boeing,
                 messershmidt, heinkel));
+
         planes.removeAll(Arrays.asList(heinkel, messershmidt));
         assertEquals(planes.size(), 1);
         assertEquals(planes.get(0), boeing);
@@ -149,6 +162,7 @@ public class PlanesListTest {
     public void testRetainAll()  {
         PlanesList planes = new PlanesList(Arrays.asList(heinkel, boeing,
                 messershmidt, heinkel));
+
         planes.removeAll(Arrays.asList(heinkel, messershmidt));
         assertEquals(planes.size(), 1);
         assertEquals(planes.get(0), boeing);
@@ -158,6 +172,7 @@ public class PlanesListTest {
     public void testSet() {
         PlanesList planes = new PlanesList(Arrays.asList(la7, la7, messershmidt,
                 boeing));
+
         planes.set(2, douglas);
         assertEquals(planes.get(2), douglas);
         assertEquals(planes.size(), 4);
@@ -166,6 +181,7 @@ public class PlanesListTest {
     @Test
     public void testSingleElementConstruct() {
         PlanesList planes = new PlanesList(plane);
+
         assertEquals(planes.size(), 1);
         assertFalse(planes.isEmpty());
         planes.remove(0);
@@ -176,6 +192,7 @@ public class PlanesListTest {
     public void testSize() {
         PlanesList planes = new PlanesList(Arrays.asList(boeing, messershmidt,
                 messershmidt, la7));
+
         planes.add(messershmidt);
         assertEquals(planes.size(), 5);
         planes.remove(messershmidt);
@@ -186,6 +203,7 @@ public class PlanesListTest {
     public void testSubList()  {
         PlanesList planes = new PlanesList(Arrays.asList(heinkel, boeing,
                 boeing, messershmidt, heinkel));
+
         PlanesList subList = planes.subList(1, 3);
         assertEquals(subList, Arrays.asList(boeing, boeing));
     }
@@ -195,6 +213,7 @@ public class PlanesListTest {
         PlanesList planes = new PlanesList(Arrays.asList(
                 heinkel, boeing, boeing, heinkel
         ));
+
         int i = 0;
         for (Plane plane : planes.toArray(new Plane[planes.size()])) {
             assertEquals(plane, planes.get(i));
@@ -206,6 +225,7 @@ public class PlanesListTest {
     public void testViaCollectionConstruct() {
         PlanesList planes = new PlanesList(Arrays.asList(plane, plane,
                 messershmidt, plane));
+
         assertEquals(planes.size(), 4);
         assertFalse(planes.isEmpty());
     }
