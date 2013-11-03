@@ -76,7 +76,8 @@ public class AirlineCompany {
     public Plane getMaxDistancePlane() {
         Plane result = null;
         for (Plane plane : planes) {
-            if (result == null || result.getFlightDistance() < plane.getFlightDistance()) {
+            if (result == null ||
+                    result.getFlightDistance() < plane.getFlightDistance()) {
                 result = plane;
             }
         }
@@ -121,7 +122,8 @@ public class AirlineCompany {
 
     @Override
     public String toString() {
-        return "AirlineCompany \"" + getName() + "\" with " + getPlanes().length() + " planes\n" +
+        return "AirlineCompany \"" + getName() + "\" with " +
+                getPlanes().length() + " planes\n" +
                 "\tcapacity: " + getCapacity() + "\n" +
                 "\tload: " + getLoad() + "\n";
     }
