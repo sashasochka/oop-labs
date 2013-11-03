@@ -7,13 +7,22 @@ import fj.data.List;
  */
 public class Main {
     public static void main(String[] args) {
-        // 1. Create planes
+        // 1. Create planes using builders
         // name, capacity, load, flightDistance, fuelPerHour, units
-        Plane bomber1 = new Bomber("Heinkel", 100, 1000, 10, 15, 14);
-        Plane bomber2 = new Bomber("Douglas", 110, 1012, 13, 14, 13);
-        Plane fighter1 = new Fighter("Messershmidt", 11, 130, 15, 8, 1240);
-        Plane fighter2 = new Fighter("La-7", 13, 150, 13, 9, 800);
-        Plane transport = new TransportPlane("Boeing", 180, 1104, 20, 20, 124);
+        Plane bomber1 = new BomberBuilder().setName("Heinkel").setCapacity(100).setLoad(1000)
+                .setFlightDistance(10).setFuelPerHour(15).setBombs(14).createBomber();
+
+        Plane bomber2 = new BomberBuilder().setName("Douglas").setCapacity(110).setLoad(1012)
+                .setFlightDistance(13).setFuelPerHour(14).setBombs(13).createBomber();
+
+        Plane fighter1 = new FighterBuilder().setName("Messershmidt").setCapacity(11).setLoad
+                (130).setFlightDistance(15).setFuelPerHour(8).setBullets(1240).createFighter();
+
+        Plane fighter2 = new FighterBuilder().setName("La-7").setCapacity(13).setLoad(150)
+                .setFlightDistance(13).setFuelPerHour(9).setBullets(800).createFighter();
+
+        Plane transport = new TransportPlaneBuilder().setName("Boeing").setCapacity(180).setLoad
+                (1104).setFlightDistance(20).setFuelPerHour(20).setSeats(124).createTransportPlane();
 
         // 2. Create company with list of planes above
         AirlineCompany company = new AirlineCompany("AeroSvit", List.list(
