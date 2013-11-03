@@ -19,8 +19,8 @@ public abstract class Plane {
      * @param flightDistance Maximum distance plane can flight
      * @param fuelPerHour Fuel per hour usage
      */
-    protected Plane(final String name, final int capacity, final int load, final int flightDistance,
-                    final double fuelPerHour) {
+    protected Plane(final String name, final int capacity, final int load,
+                    final int flightDistance, final double fuelPerHour) {
         this.name = name;
         this.capacity = capacity;
         this.load = load;

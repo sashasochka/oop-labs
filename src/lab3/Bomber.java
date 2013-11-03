@@ -16,8 +16,8 @@ public class Bomber extends Plane {
      * @param bombs Number of bombs in this bomber
      */
     public Bomber(final String name, final int capacity, final int load,
-                     final int flightDistance,
-                     final double fuelPerHour, final int bombs) {
+                  final int flightDistance, final double fuelPerHour,
+                  final int bombs) {
         super(name, capacity, load, flightDistance, fuelPerHour);
         this.bombs = bombs;
     }
