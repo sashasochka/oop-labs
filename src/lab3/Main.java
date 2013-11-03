@@ -1,6 +1,6 @@
 package lab3;
 
-import fj.data.List;
+import static fj.data.List.list;
 
 /**
  * Main class with demo {@link Plane} and {@link AirlineCompany} usage
@@ -25,7 +25,7 @@ public class Main {
                 (1104).setFlightDistance(20).setFuelPerHour(20).setSeats(124).createTransportPlane();
 
         // 2. Create company with list of planes above
-        AirlineCompany aeroSvit = new AirlineCompany("AeroSvit", List.list(
+        AirlineCompany aeroSvit = new AirlineCompany("AeroSvit", list(
                 heinkel, douglas, messershmidt, la7, boeing
         ));
 
