@@ -53,7 +53,7 @@ public class PlanesListTest {
         PlanesList planes = new PlanesList(plane);
         assertEquals(planes.size(), 1);
         assertFalse(planes.isEmpty());
-        planes.remove();
+        planes.remove(0);
         assertTrue(planes.isEmpty());
     }
 
