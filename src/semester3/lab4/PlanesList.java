@@ -1,6 +1,6 @@
-package lab4;
+package semester3.lab4;
 
-import lab3.Plane;
+import semester3.lab3.Plane;
 
 import java.util.Collection;
 import java.util.Iterator;

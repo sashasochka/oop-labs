@@ -1,4 +1,4 @@
-package lab1;
+package semester3.lab1;
 
 import com.google.common.base.CharMatcher;
 

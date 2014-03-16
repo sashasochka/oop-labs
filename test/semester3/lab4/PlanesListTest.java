@@ -1,6 +1,6 @@
-package lab4;
+package semester3.lab4;
 
-import lab3.*;
+import semester3.lab3.*;
 import org.junit.Test;
 
 import java.util.Arrays;

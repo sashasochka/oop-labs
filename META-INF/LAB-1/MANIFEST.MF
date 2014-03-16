@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: lab1.WordSorter
+Main-Class: semester3.lab1.WordSorter

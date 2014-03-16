@@ -1,4 +1,4 @@
-package lab3;
+package semester3.lab3;
 
 /**
  * Abstract base class for any plane

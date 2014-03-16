@@ -1,4 +1,4 @@
-package lab3;
+package semester3.lab3;
 
 import fj.F;
 import fj.data.List;

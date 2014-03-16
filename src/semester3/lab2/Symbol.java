@@ -1,4 +1,4 @@
-package lab2;
+package semester3.lab2;
 
 public class Symbol {
     private char character;
