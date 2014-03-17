@@ -4,8 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is used for CVS file parsing
+ */
 public class CSVProcessor {
-    File defaultFile = new File("serialized.dat");
+    final static File defaultFile = new File("serialized.dat");
     List<String> lines;
 
     // state used during parsing
@@ -18,10 +21,13 @@ public class CSVProcessor {
     private StringBuilder field;
     private int row;
     private int col;
-    ArrayList<ArrayList<String>> data;
+    private ArrayList<ArrayList<String>> data;
 
-
-
+    /**
+     * Loads a CSV file and makes it ready for parsing
+     * @param file CSV file
+     * @throws IOException
+     */
     public void load(File file) throws IOException {
         lines = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -32,6 +38,11 @@ public class CSVProcessor {
         }
     }
 
+    /**
+     * Saves CSV data into a file
+     * @param file CSV file
+     * @throws IOException
+     */
     public void save(File file) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             for (String line: lines) {
@@ -41,16 +52,30 @@ public class CSVProcessor {
         }
     }
 
+    /**
+     * Serializes CSV data into the specified file
+     * @param file CSV file where to save
+     * @throws IOException
+     */
     public void serialize(File file) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
             oos.writeObject(lines);
         }
     }
 
+    /**
+     * Serialized CSV data into "serialized.dat" file in the current directory
+     * @throws IOException
+     */
     public void serialize() throws IOException {
         serialize(defaultFile);
     }
 
+    /**
+     * Deserializes CSV data from the specified file
+     * @param file serialized CSV data
+     * @throws IOException
+     */
     public void deserialize(File file) throws IOException {
         try (ObjectInputStream oin = new ObjectInputStream(new FileInputStream(file))) {
             try {
@@ -62,10 +87,18 @@ public class CSVProcessor {
         }
     }
 
+    /**
+     * Deserializes CSV data from "serialized.dat" file
+     * @throws IOException
+     */
     public void deserialize() throws IOException {
         deserialize(defaultFile);
     }
 
+    /**
+     * Parse CSV file into 2d array of values
+     * @return Parsed 2d array of values
+     */
     ArrayList<ArrayList<String>> parse() {
         try {
             resetState();

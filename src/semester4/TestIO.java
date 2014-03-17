@@ -7,7 +7,17 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
+/**
+ * This class shows an example of CSVProcessor class usage
+ */
 public class TestIO {
+    /**
+     * The main method run after launching
+     * @param args Program arguments (not used)
+     * @throws IOException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
         final CSVProcessor csvProcessor = new CSVProcessor();
         if (hasSerializedVersion()) {
@@ -34,10 +44,19 @@ public class TestIO {
         System.out.println(future.get());
     }
 
+    /**
+     * Checks if there is a serialized file with data
+     * @return boolean value if there is a file
+     */
     private static boolean hasSerializedVersion() {
         return new File("serialized.dat").canRead();
     }
 
+    /**
+     * Ask user for a file location
+     * @return User-specified file (as a File object)
+     * @throws IOException
+     */
     private static File getUserFile() throws IOException {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             boolean success = false;
