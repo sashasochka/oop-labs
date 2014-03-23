@@ -1,7 +1,6 @@
 package semester3.lab2;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class WordSorter {
@@ -16,22 +15,9 @@ public class WordSorter {
         List<Word> words = text.getWords();
         /** Sort words by number of indexingLetter occurences */
         /** use custom Comparator */
-        Collections.sort(words, new Comparator<Word>() {
-            /**
-             *
-             * @param w1 First word to compare
-             * @param w2 Second word to compare
-             * @return This same semantics as in overriden method
-             */
-            @Override
-            public int compare(final Word w1, final Word w2) {
-                return w1.countLetter(indexingLetter) - w2.countLetter(indexingLetter);
-            }
-        });
+        Collections.sort(words, (w1, w2) -> w1.countLetter(indexingLetter) - w2.countLetter(indexingLetter));
         /** each word in list of words */
-        for (Word word : words) {
-            System.out.println(word);
-        }
+        words.forEach(System.out::println);
     }
 }
 

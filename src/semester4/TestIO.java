@@ -35,12 +35,7 @@ public class TestIO {
         System.out.println("Serializing to serialized.dat...");
         csvProcessor.serialize();
         ExecutorService es = Executors.newSingleThreadExecutor();
-        Future<ArrayList<ArrayList<String>>> future = es.submit(new Callable<ArrayList<ArrayList<String>>>() {
-            @Override
-            public ArrayList<ArrayList<String>> call() throws Exception {
-                return csvProcessor.parse();
-            }
-        });
+        Future<ArrayList<ArrayList<String>>> future = es.submit(csvProcessor::parse);
         System.out.println(future.get());
     }
 

@@ -30,11 +30,7 @@ public class Symbol {
 
         final Symbol symbol = (Symbol) o;
 
-        if (character != symbol.character) {
-            return false;
-        }
-
-        return true;
+        return character == symbol.character;
     }
 
     @Override

@@ -12,7 +12,7 @@ public class CSVProcessorTest {
     ArrayList<ArrayList<String>> toArrayList(String[][] data) {
         ArrayList<ArrayList<String>> result = new ArrayList<>();
         for (String[] record: data) {
-            result.add(new ArrayList<String>());
+            result.add(new ArrayList<>());
             for (String s: record) {
                 result.get(result.size() - 1).add(s);
             }

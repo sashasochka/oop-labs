@@ -12,17 +12,10 @@ public class WordSorter {
         // list of words in text
         List<StringBuffer> words = getWords(System.in);
         // Sort words by indexLetter occurences
-        Collections.sort(words, new Comparator<StringBuffer>() {
-            @Override
-            public int compare(final StringBuffer s1, final StringBuffer s2) {
-                return CharMatcher.is(indexLetter).countIn(s1.toString().toLowerCase()) -
-                        CharMatcher.is(indexLetter).countIn(s2.toString().toLowerCase());
-            }
-        });
+        Collections.sort(words, (s1, s2) -> CharMatcher.is(indexLetter).countIn(s1.toString().toLowerCase()) -
+                CharMatcher.is(indexLetter).countIn(s2.toString().toLowerCase()));
         // print words in sorted order
-        for (StringBuffer word : words) {
-            System.out.println(word);
-        }
+        words.forEach(System.out::println);
     }
 
     private static char parseIndexLetterOption(String[] args) {

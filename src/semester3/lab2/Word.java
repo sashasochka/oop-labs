@@ -41,9 +41,7 @@ public class Word implements SentencePart {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        for (Symbol letter : letters) {
-            result.append(letter);
-        }
+        letters.forEach(result::append);
         return result.toString();
     }
 

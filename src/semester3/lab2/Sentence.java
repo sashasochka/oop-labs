@@ -2,6 +2,7 @@ package semester3.lab2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sentence {
     private List<SentencePart> parts;
@@ -37,13 +38,9 @@ public class Sentence {
 
     /** Get list of words in this sentence */
     final public List<Word> getWords() {
-        List<Word> words = new ArrayList<>();
-        for (SentencePart part : parts) {
-            if (part instanceof Word) {
-                words.add((Word) part);
-            }
-        }
-        return words;
+        return parts.stream()
+                .filter(part -> part instanceof Word).map(part -> (Word) part)
+                .collect(Collectors.toList());
     }
 
     /** Get all parts of this sentence */
