@@ -99,7 +99,7 @@ public class CSVProcessor {
      * Parse CSV file into 2d array of values
      * @return Parsed 2d array of values
      */
-    ArrayList<ArrayList<String>> parse() {
+    public ArrayList<ArrayList<String>> parse() {
         try {
             resetState();
             row = 1;
