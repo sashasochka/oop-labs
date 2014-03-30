@@ -2,3 +2,7 @@ docs
 out
 .idea/workspace.xml
 csv/serialized.dat
+csv/*.jpeg
+csv/*.jpg
+csv/*.png
+csv/*.gif
